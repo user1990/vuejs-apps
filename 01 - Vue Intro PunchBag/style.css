@@ -1,0 +1,64 @@
+body {
+    background-image: url(img/background.jpg);
+    background-repeat: no-repeat;
+}
+
+#bag {
+    width: 200px;
+    height: 500px;
+    margin: 0 auto;
+    background: url(img/bag.png) center no-repeat;
+    background-size: 80%;
+}
+
+#bag:hover {
+    cursor: pointer;
+}
+
+#bag.burst {
+    background-image: url(img/bag-burst.png);
+}
+
+#bag-health {
+    width: 335px;
+    border: 2px solid #000;
+    margin: 0 auto 20px auto;
+}
+
+#bag-health div {
+    height: 20px;
+    background: crimson
+}
+
+#controls {
+    width: 120px;
+    margin: 0 auto;
+}
+
+button {
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #1ECD97;
+    color: #1ECD97;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+button:hover {
+    color: white;
+    background: #1ECD97;
+}
+
+span {
+    text-align: center;
+    width: 100%;
+    float: left;
+}
