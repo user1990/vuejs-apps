@@ -1,68 +1,112 @@
 <template>
-  <div>
-    <h1>Please fill out our form...</h1>
-    <form>
-      <div id="form-header">
-        <slot name="form-header"></slot>
+  <div id="add-blog">
+    <h2>Add a New Blog Post</h2>
+    <form v-if="!submitted">
+      <label>Blog Title:</label>
+      <input type="text" v-model.lazy="blog.title" required>
+      <label>Blog Content:</label>
+      <textarea v-model.lazy.trim="blog.content"></textarea>
+      <div id="checkboxes">
+        <p>Blog Categories:</p>
+        <label>Ninjas</label>
+        <input type="checkbox" value="ninjas" v-model="blog.categories">
+        <label>Wizards</label>
+        <input type="checkbox" value="wizards" v-model="blog.categories">
+        <label>Mario</label>
+        <input type="checkbox" value="mario" v-model="blog.categories">
+        <label>Cheese</label>
+        <input type="checkbox" value="cheese" v-model="blog.categories">
       </div>
-      <div id="form-fields">
-        <slot name="form-fields"></slot>
-      </div>
-      <div id="form-controls">
-        <slot name="form-controls"></slot>
-      </div>
-      <div id="useful-links">
-        <ul>
-          <li><a href="#">link 1</a></li>
-          <li><a href="#">link 2</a></li>
-          <li><a href="#">link 3</a></li>
-          <li><a href="#">link 4</a></li>
-        </ul>
-      </div>
+      <label for="author">Author:</label>
+      <select v-model="blog.author">
+        <option v-for="author in authors">{{ author }}</option>
+      </select>
+      <button v-on:click.prevent="post">Add Blog</button>
     </form>
+    <div v-if="!submitted">
+        <h3>Thanks for adding your post</h3>
+    </div>
+    <div id="preview">
+      <h3>Preview blog</h3>
+      <p>Blog title: {{ blog.title }}</p>
+      <p>Blog content:</p>
+      <p style="white-space: pre">{{ blog.content }}</p>
+      <p>Blog Categories:</p>
+      <ul>
+        <li v-for="category in blog.categories">{{ category }}</li>
+      </ul>
+      <p>Author: {{ blog.author }}</p>
+    </div>
   </div>
 </template>
+
 <script>
   // Imports
   export default {
-    components: {
-    },
-    data () {
+    data() {
       return {
+        blog: {
+          title: '',
+          content: '',
+          categories: [],
+          author: ''
+        },
+        authors: ['The Net Ninja', 'The Angular Avenger', 'The Vue Vindicator'],
+        submitted: false
       }
     },
     methods: {
+      post: function() {
+        this.$http.post('http://jsonplaceholder.typicode.com/posts', {
+          title: this.blog.title,
+          body: this.blog.content,
+          userId: 1
+        }).then(function(data) {
+          this.submitted = true;
+        });
+      }
     }
   }
 </script>
-<style scoped>
-  h1{
-    text-align: center;
+
+<style>
+  #add-blog * {
+    box-sizing: border-box;
   }
 
-  form{
+  #add-blog {
+    margin: 20px auto;
+    max-width: 500px;
+  }
+
+  label {
+    display: block;
+    margin: 20px 0 10px;
+  }
+
+  input[type="text"],
+  textarea {
+    display: block;
     width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
+    padding: 8px;
   }
 
-  #useful-links ul{
-    padding: 0;
+  #preview {
+    padding: 10px 20px;
+    border: 1px dotted #ccc;
+    margin: 30px 0;
   }
 
-  #useful-links li{
+  h3 {
+    margin-top: 10px;
+  }
+
+  #checkboxes input {
     display: inline-block;
     margin-right: 10px;
   }
 
-  form > div{
-    padding: 20px;
-    background: #eee;
-    margin: 20px 0;
-  }
-
-  #form-header{
-    background: #ddd;
-    border: 1px solid #bbb;
+  #checkboxes label {
+    display: inline-block;
   }
 </style>
