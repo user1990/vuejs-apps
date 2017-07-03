@@ -1,4 +1,4 @@
-# vuejs-playlist
+# vuejs-simpleBlog
 
 > A Vue.js project
 
