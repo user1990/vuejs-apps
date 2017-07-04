@@ -1,3 +1,4 @@
+![translate](https://user-images.githubusercontent.com/13827656/27831473-8882dc96-60d3-11e7-8ea6-92d9376d2d89.jpg)
 # Word Translator
 
 Vue.js application that uses the Yandex Translate API
