@@ -30,7 +30,7 @@
       <h3>Preview blog</h3>
       <p>Blog title: {{ blog.title }}</p>
       <p>Blog content:</p>
-      <p style="white-space: pre">{{ blog.content }}</p>
+      <p>{{ blog.content }}</p>
       <p>Blog Categories:</p>
       <ul>
         <li v-for="category in blog.categories">{{ category }}</li>
@@ -51,17 +51,14 @@
           categories: [],
           author: ''
         },
-        authors: ['The Net Ninja', 'The Angular Avenger', 'The Vue Vindicator'],
+        authors: ['PauliusR', 'user1990', 'The Vue Master'],
         submitted: false
       }
     },
     methods: {
       post: function() {
-        this.$http.post('http://jsonplaceholder.typicode.com/posts', {
-          title: this.blog.title,
-          body: this.blog.content,
-          userId: 1
-        }).then(function(data) {
+        this.$http.post('https://simpleblog-6f26b.firebaseio.com/posts.json', this.blog).then(function(data) {
+          console.log(data);
           this.submitted = true;
         });
       }
@@ -73,40 +70,53 @@
   #add-blog * {
     box-sizing: border-box;
   }
-
   #add-blog {
     margin: 20px auto;
     max-width: 500px;
   }
-
   label {
     display: block;
     margin: 20px 0 10px;
   }
-
   input[type="text"],
   textarea {
     display: block;
     width: 100%;
     padding: 8px;
   }
-
   #preview {
     padding: 10px 20px;
     border: 1px dotted #ccc;
     margin: 30px 0;
   }
-
   h3 {
     margin-top: 10px;
   }
-
   #checkboxes input {
     display: inline-block;
     margin-right: 10px;
   }
-
   #checkboxes label {
     display: inline-block;
+  }
+  button {
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #1ECD97;
+    color: #1ECD97;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  button:hover {
+    color: white;
+    background: #1ECD97;
   }
 </style>
