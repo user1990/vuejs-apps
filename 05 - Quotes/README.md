@@ -1,6 +1,7 @@
-# vue-cli
+![quotes](https://user-images.githubusercontent.com/13827656/28066592-4902a8c6-6646-11e7-95e7-fa9423aa3c29.jpg)
+# Quotes
 
-> A Vue.js project
+> Simple Vue.js app for adding, deleting favorite quotes with progress bar 
 
 ## Build Setup
 
@@ -15,4 +16,3 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
