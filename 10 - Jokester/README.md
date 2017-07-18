@@ -1,6 +1,6 @@
-# my-project
+# jokester
 
-> A Vue.js project
+> Generating jokes from API using vuex
 
 ## Build Setup
 

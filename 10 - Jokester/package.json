@@ -1,6 +1,6 @@
 {
   "name": "jokester",
-  "description": "A Vue.js project",
+  "description": "Generating jokes from API using vuex",
   "version": "1.0.0",
   "author": "user1990 <paulius.rimg1990@gmail.com>",
   "private": true,
