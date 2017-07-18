@@ -1,29 +1,11 @@
 <template>
   <div id="app">
-    <h3>{{ title }}</h3>
-    <div class="col-md-12">
-      <Character v-for="(id, index) in initial_ids" :id="id" key="index"></Character>
-    </div>
+    <h3>Starbase</h3>
+    <h4>
+      <router-link class="link" to="/data/people">Meet The Characters</router-link> |
+      <router-link class="link" to="/data/planets">Explore The Planets</router-link>
+    </h4>
+    <router-view></router-view>
   </div>
 </template>
 
-<script>
-import Character from './components/Character.vue';
-
-export default {
-  name: 'app',
-  data() {
-    return {
-      title: 'Generate Your Team',
-      initial_ids: [1, 2, 3, 4, 5, 6]
-    }
-  },
-  components: {
-    Character
-  }
-}
-</script>
-
-<style>
-
-</style>
