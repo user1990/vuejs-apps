@@ -1,3 +1,5 @@
+![jokes](https://user-images.githubusercontent.com/13827656/28337533-99467466-6c0e-11e7-8ebf-93524d2d555d.jpg)
+
 # jokester
 
 > Generating jokes from API using vuex
@@ -15,4 +17,3 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
