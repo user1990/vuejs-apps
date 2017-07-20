@@ -1,0 +1,60 @@
+body {
+  background:#05522c;
+}
+
+h3, h4 {
+  color: aliceblue;
+}
+
+p {
+  color: aliceblue;
+}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2C3350;
+  margin-top: 60px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.signout-btn {
+  position: absolute;
+  text-align: right;
+  top: 60px;
+  right: 40px;
+}
+
+.form {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.event-card {
+  border: 2px solid #3896f3;
+  margin-top: 10x;
+  border-radius: 4px;
+  background: #0d7bda;
+  padding: 8px;
+}
+
+input.form-control {
+  width: 100%;
+  margin: 0 auto;
+  font-family: cursive;
+}
+
+@media (min-width: 600px) {
+  input.form-control  {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1000px) {
+  input.form-control  {
+    width: 35%;
+  }
+}
