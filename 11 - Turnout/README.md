@@ -1,4 +1,6 @@
-# turnout
+![events](https://user-images.githubusercontent.com/13827656/28412201-1276f2dc-6d4c-11e7-90c2-ea0a65263802.jpg)
+
+# Turnout
 
 > Social Events sharing application that allows to post events in real time
 
