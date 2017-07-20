@@ -14,7 +14,7 @@
       <div class="form-group">
         <input type="text" class="form-control" v-model="event.location" placeholder="Location">
       </div>
-      <button class="btn-sm btn-primary" @click="addEvent">Submit</button>
+      <button class="btn btn-primary" @click="addEvent">Submit</button>
     </div>
   </div>
 </template>
