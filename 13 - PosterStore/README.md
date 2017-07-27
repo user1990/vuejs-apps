@@ -1,3 +1,5 @@
+![poster](https://user-images.githubusercontent.com/13827656/28682710-a0116c98-7306-11e7-8d08-3c6519ab7787.jpg)
+
 # Poster-shop
 
 ### A simple but powerful e-commerce UI complete with products and a shopping cart that will utilise most of the essential features of Vue.
