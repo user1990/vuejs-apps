@@ -2,10 +2,6 @@
 
 ### A simple but powerful e-commerce UI complete with products and a shopping cart that will utilise most of the essential features of Vue.
 
-#### Demo
-
-See the completed project here: [http://vuejs-poster-shop.vuejsdevelopers.com/](http://vuejs-poster-shop.vuejsdevelopers.com/)
-
 #### Pre-installation
 
 1. Ensure [NPM](https://docs.npmjs.com) and [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) are installed on your system

@@ -103,13 +103,21 @@ h1 {
 }
 
 .searchbar > input[type=submit] {
-    background-color: black;
-    padding: 1rem;
-    border: none;
-    border-radius: 2px;
-    font-size: 0.8rem;
-    color: white;
-    user-select: none;
+    min-width:10%;
+    height:40px;
+    background:transparent;
+    border:1px solid #2bccd4;
+    box-shadow:inset 0 0 0 0 #2bccd4;
+    -webkit-transition: -webkit-box-shadow 300ms ease-in-out;
+    -moz-transition: -moz-box-shadow 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out;
+    color:#222;
+    cursor: pointer;
+}
+
+.searchbar > input[type=submit]:hover {
+    color:#fff;
+    background-color: #2bccd4;
 }
 
 /* Products */
@@ -218,7 +226,7 @@ h1 {
     padding-top: 0.5rem;
 }
 
-.cart ul .cart-item .item-qty {
+.cart ul .cart-item .item-quantity {
     margin-right: 1rem;
 }
 
@@ -228,4 +236,35 @@ h1 {
 
 .cart ul .cart-item button {
     margin-right: 3px;
+}
+
+/* Buttons */
+
+button{
+  min-width:10%;
+  height:40px;
+  background:transparent;
+  border:1px solid #2bccd4;
+  box-shadow:inset 0 0 0 0 #2bccd4;
+  -webkit-transition: -webkit-box-shadow 300ms ease-in-out;
+  -moz-transition: -moz-box-shadow 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out;
+  color:#222;
+  cursor: pointer;
+}
+
+button:hover{
+  color:#fff;
+}
+
+.slideRight:hover{
+  box-shadow:inset 300px 0 0 0 #2bccd4;
+}
+
+input.search-btn {
+
+}
+
+input.search-btn:hover{
+  color:#fff;
 }
