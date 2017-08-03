@@ -4,10 +4,6 @@
   "description": "A multi-page movie session times app",
   "main": "server.js",
   "author": "user1990",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vuejsdevelopers/vuejs-cinema"
-  },
   "license": "UNLICENSED",
   "scripts": {
     "start": "nodemon ./server.js --ignore src/ -e js,html,css",

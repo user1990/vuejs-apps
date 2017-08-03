@@ -3,11 +3,11 @@ require('dotenv').config();
 const axios = require('axios');
 const async = require('async');
 const moment = require('moment-timezone');
-moment.tz.setDefault("UTC");
+moment.tz.setDefault('UTC');
 
 // Axios
 const $http = axios.create({
-  baseURL: `http://localhost:${process.env.PORT}/offline_api`,
+  baseURL: `http://localhost:${process.env.PORT}/offline_api`
 });
 
 function generateSessions(id) {
@@ -33,13 +33,13 @@ function generateSessions(id) {
       });
     }
   });
-  return sessions.sort((a, b) => { if (a.time < b.time) { return - 1 } else { return a.time > b.time; } });
+  return sessions.sort((a, b) => { if (a.time < b.time) { return -1; } return a.time > b.time; });
 }
 
 function cleanData(movie) {
   if (movie.Rated === 'N/A' || movie.Rated === 'UNRATED' || movie.Rated === 'NOT RATED') {
     let last = parseInt(movie.imdbID[movie.imdbID.length - 1]);
-    movie.Rated = last < 7 ? ( last < 4 ? 'G' : 'PG-13' ) : 'R';
+    movie.Rated = last < 7 ? (last < 4 ? 'G' : 'PG-13') : 'R';
   }
   return movie;
 }
@@ -52,11 +52,11 @@ module.exports = {
       let data = [];
       async.each(
         ids,
-        function (id, callback) {
+        function(id, callback) {
           if (!data.find(item => item.id === id)) {
             $http.get(`?i=${id}`)
               .then(
-                function (response) {
+                function(response) {
                   if (!response.data.Error) {
                     data.push({
                       id,
@@ -68,7 +68,7 @@ module.exports = {
                   }
                   callback();
                 },
-                function (err) {
+                function(err) {
                   callback(err);
                 }
               )
@@ -81,7 +81,7 @@ module.exports = {
           if (err) {
             callback(err, null);
           } else {
-            this.data = ids.map(id => data.find(item => id === item.id) );
+            this.data = ids.map(id => data.find(item => id === item.id));
             callback(null, this.data);
           }
         }

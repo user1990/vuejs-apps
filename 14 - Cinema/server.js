@@ -35,12 +35,12 @@ let offlineData = JSON.parse(fs.readFileSync(path.resolve('./api_offline.json'),
 app.get('/offline_api', function(req, res) {
   let data = offlineData.find(item => item.imdbID === req.query.i);
   if (!data) {
-    data = { "Response":"False", "Error":`IMDb ID ${req.query.i} not found.` }
+    data = { 'Response': 'False', 'Error': `IMDb ID ${req.query.i} not found.` };
   }
   res.json(data);
 });
 
-app.listen(process.env.PORT, function () {
+app.listen(process.env.PORT, function() {
   console.log(`Example app listening on port ${process.env.PORT}!`);
   if (process.env.NODE_ENV === 'development') {
     require('open')(`http://localhost:${process.env.PORT}`);

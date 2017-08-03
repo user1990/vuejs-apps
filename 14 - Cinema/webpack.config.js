@@ -19,11 +19,11 @@ module.exports = {
         use: [{
           loader: 'babel-loader',
           options: {
-            "presets": [ [ "es2015" ] ],
-            "plugins": [ "transform-es2015-destructuring", "transform-object-rest-spread", "transform-runtime" ]
+            'presets': [ [ 'es2015' ] ],
+            'plugins': [ 'transform-es2015-destructuring', 'transform-object-rest-spread', 'transform-runtime' ]
           }
         }],
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /\.scss$/,
@@ -65,7 +65,7 @@ if (process.env.NODE_ENV === 'development') {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ];
-  module.exports.entry.push('webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000'); //?noInfo=true&quiet=true)
+  module.exports.entry.push('webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000'); // ?noInfo=true&quiet=true)
   module.exports.module.rules[0].use.push({ loader: 'webpack-module-hot-accept' });
 }
 
@@ -87,5 +87,5 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
-  ])
+  ]);
 }
