@@ -2,10 +2,10 @@
   <v-container>
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
-        <h2 class="info--text">Create new meetup</h2>
+        <h4>Create a new Meetup</h4>
       </v-flex>
     </v-layout>
-    <v-layout>
+    <v-layout row>
       <v-flex xs12>
         <form @submit.prevent="onCreateMeetup">
           <v-layout row>
@@ -52,18 +52,33 @@
                 name="description"
                 label="Description"
                 id="description"
+                multi-line
                 v-model="description"
-                multiLine
                 required>
               </v-text-field>
             </v-flex>
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
+              <h4>Choose a Data & Time</h4>
+            </v-flex>
+          </v-layout>
+          <v-layout row class="mb-2">
+            <v-flex xs12 sm6 offset-sm3>
+              <v-date-picker v-model="date"></v-date-picker>
+            </v-flex>
+          </v-layout>
+          <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
+              <v-time-picker v-model="time" format="24hr"></v-time-picker>
+            </v-flex>
+          </v-layout>
+          <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
               <v-btn
-                class="info"
-                type="submit"
-                :disabled="!formIsValid">Create Meetup
+                class="primary"
+                :disabled="!formIsValid"
+                type="submit">Create Meetup
               </v-btn>
             </v-flex>
           </v-layout>
@@ -74,39 +89,76 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      title: '',
-      location: '',
-      imageUrl: '',
-      description: ''
-    }
-  },
-  computed: {
-    formIsValid () {
-      return this.title !== '' &&
-             this.location !== '' &&
-             this.imageUrl !== '' &&
-             this.description !== ''
-    }
-  },
-  methods: {
-    onCreateMeetup () {
-      if (!this.formIsValid) {
-        return
+  export default {
+    data () {
+      return {
+        title: '',
+        location: '',
+        imageUrl: '',
+        description: '',
+        date: new Date(),
+        time: new Date()
       }
-      const meetupData = {
-        title: this.title,
-        location: this.location,
-        imageUrl: this.imageUrl,
-        description: this.description,
-        date: new Date()
+    },
+    computed: {
+      formIsValid () {
+        return this.title !== '' &&
+          this.location !== '' &&
+          this.imageUrl !== '' &&
+          this.description !== ''
+      },
+      submittableDateTime () {
+        const date = new Date(this.date)
+        if (typeof this.time === 'string') {
+          let hours = this.time.match(/^(\d+)/)[1]
+          const minutes = this.time.match(/:(\d+)/)[1]
+          date.setHours(hours)
+          date.setMinutes(minutes)
+        } else {
+          date.setHours(this.time.getHours())
+          date.setMinutes(this.time.getMinutes())
+        }
+        return date
       }
-      this.$store.dispatch('createMeetup', meetupData)
-      this.$router.push('/meetups')
+    },
+    methods: {
+      onCreateMeetup () {
+        if (!this.formIsValid) {
+          return
+        }
+        const meetupData = {
+          title: this.title,
+          location: this.location,
+          imageUrl: this.imageUrl,
+          description: this.description,
+          date: this.submittableDateTime
+        }
+        this.$store.dispatch('createMeetup', meetupData)
+        this.$router.push('/meetups')
+      }
     }
   }
-}
 </script>
+
+<style>
+  /* Ligth Blue Theme for Date&Time pickers*/
+  .picker__title {
+    background: #2196f3;
+  }
+  .picker--date table .btn.btn--floating.btn--active:after {
+    background: #2196f3 !important;
+  }
+  .picker--date table .btn.btn--floating:after {
+    background: #2196f3 !important;
+  }
+  .picker--time__clock-hand {
+    background: #2196f3;
+  }
+  .picker--time__clock > span.active:before {
+    background: #2196f3;
+  }
+  .picker--time__clock-hand:before {
+    border: 2px solid #2196f3;
+  }
+</style>
 
