@@ -20,12 +20,12 @@
       <img src="/public/logo.png">
       <h1>Vue.js Cinema</h1>
     </div>
-    <div id="overview">
-      <div class="main">
-        <movie-list :genre="genre" :time="time" :movies="movies" :day="day"></movie-list>
-        <movie-filter @check-filter="checkFilter"></movie-filter>
-      </div>
-    </div>
+    <router-view
+      :genre="genre"
+      :time="time"
+      :movies="movies"
+      :day="day">
+    </router-view>
   </div>
   <script src="/dist/build.js"></script>
 </body>

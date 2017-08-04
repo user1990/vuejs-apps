@@ -7,8 +7,7 @@
         v-for="time in times"
         :key="time.id"
         :title="time"
-        category="time"
-        @check-filter="checkFilter">
+        category="time">
       </check-filter>
     </div>
     <h3>By genre</h3>
@@ -17,8 +16,7 @@
         v-for="genre in genres"
         :key="genre.id"
         :title="genre"
-        category="genre"
-        @check-filter="checkFilter">
+        category="genre">
       </check-filter>
     </div>
   </div>
@@ -35,11 +33,6 @@
         genres,
         times
       };
-    },
-    methods: {
-      checkFilter(category, title, checked) {
-        this.$emit('check-filter', category, title, checked);
-      }
     },
     components: {
       CheckFilter
