@@ -1,3 +1,5 @@
+![cinema](https://user-images.githubusercontent.com/13827656/29073145-2f896fa6-7c53-11e7-9eff-99d4d438b892.jpg)
+
 # Cinema
 ### A multi-page movie session times app that introduces professional features of Vue like components, Vue Router and the Webpack build flow, allowing you to create complex and larger apps.
 
