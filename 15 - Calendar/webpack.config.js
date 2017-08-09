@@ -3,12 +3,12 @@ require('dotenv').config();
 var path = require('path');
 var webpack = require('webpack');
 var webpackMerge = require('webpack-merge');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var baseConfig = {
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: '/dist/'
   },
   module: {
     rules: [
@@ -17,8 +17,8 @@ var baseConfig = {
         use: [{
           loader: 'babel-loader',
           options: {
-            "presets": [ [ "es2015" ] ],
-            "plugins": [ "transform-es2015-destructuring", "transform-runtime" ]
+            'presets': [ [ 'es2015' ] ],
+            'plugins': [ 'transform-es2015-destructuring', 'transform-runtime' ]
           }
         }],
         exclude: /node_modules/
@@ -40,7 +40,7 @@ var baseConfig = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            'scss': 'vue-style-loader!css-loader!sass-loader',
+            'scss': 'vue-style-loader!css-loader!sass-loader'
           }
         }
       }
@@ -48,7 +48,7 @@ var baseConfig = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.common.js',
+      'vue$': 'vue/dist/vue.common.js'
     }
   },
   devServer: {
@@ -69,7 +69,6 @@ let targets = [ 'web', 'node' ].map((target) => {
           ? [ `./src/${target}.entry.js`, 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000' ]
           : [ `./src/${target}.entry.js` ]
         : [ `./src/${target}.entry.js` ]
-      ,
     },
     output: {
       filename: `${target}.bundle.js`,
@@ -83,17 +82,17 @@ let targets = [ 'web', 'node' ].map((target) => {
     plugins: target === 'web'
       ? process.env.NODE_ENV === 'development'
         ? [
-            new webpack.HotModuleReplacementPlugin(),
-            new ExtractTextPlugin("style.css")
-          ]
+          new webpack.HotModuleReplacementPlugin(),
+          new ExtractTextPlugin('style.css')
+        ]
         : [
-            new webpack.DefinePlugin({ 'process.env': { NODE_ENV: '"production"' } }),
-            new webpack.optimize.UglifyJsPlugin({ sourceMap: true, compress: { warnings: false } }),
-            new webpack.LoaderOptionsPlugin({ minimize: true }),
-            new ExtractTextPlugin("style.css")
-          ]
-      : []
-    ,
+          new webpack.DefinePlugin({ 'process.env': { NODE_ENV: '"production"' } }),
+          new webpack.optimize.UglifyJsPlugin({ sourceMap: true, compress: { warnings: false } }),
+          new webpack.LoaderOptionsPlugin({ minimize: true }),
+          new ExtractTextPlugin('style.css')
+        ]
+      : [],
+
     devtool: target === 'web'
       ? process.env.NODE_ENV === 'development'
         ? '#eval-source-map'

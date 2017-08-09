@@ -1,4 +1,4 @@
-const webpack = require("webpack");
+const webpack = require('webpack');
 const webpackConfig = require('./webpack.config').find(item => item.target === 'node');
 const path = require('path');
 const MFS = require('memory-fs');
