@@ -1,3 +1,4 @@
+![calendar](https://user-images.githubusercontent.com/13827656/29162432-1894a764-7dc2-11e7-9a76-373a12e69a5b.jpg)
 # Calendar
 
 ### A Google Calendar clone. This project uses cutting edge features like server-side rendering and the Vuex state management library.
