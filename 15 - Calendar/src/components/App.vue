@@ -2,6 +2,7 @@
   <div>
     <div id="header">
       <div>
+        <img src="../assets/logo.png">
         <h1>Vue.js Calendar</h1>
       </div>
       <div>
@@ -47,7 +48,6 @@ export default {
         days.push(currentDay);
         currentDay = this.$moment(currentDay).add(1, 'days');
       } while ((currentDay.month() + 1) === this.month);
-
       // Add previous days to start
       currentDay = this.$moment(days[0]);
       const SUNDAY = 0;
@@ -58,7 +58,6 @@ export default {
           days.unshift(currentDay);
         } while (currentDay.day() !== MONDAY);
       }
-
       // Add following days to end
       currentDay = this.$moment(days[days.length - 1]);
       if (currentDay.day() !== SUNDAY) {

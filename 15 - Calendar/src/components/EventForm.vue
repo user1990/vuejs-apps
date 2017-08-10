@@ -3,7 +3,7 @@
     <h4>Add an event</h4>
     <p>{{ date.format('dddd, MMM Do') }}</p>
     <div class="text">
-      <input v:focus type="text" v-model="description" placeholder="Dinner at Pancho's" @keyup.enter="create">
+      <input v-focus type="text" v-model="description" placeholder="Dinner at Pancho's" @keyup.enter="create">
     </div>
     <div class="buttons">
       <button @click="create">Create</button>
@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       description: ''
-    };
+    }
   },
   methods: {
     close() {
@@ -25,9 +25,10 @@ export default {
     },
     create() {
       if (this.description.length > 0) {
-        this.$store.commit('addEvent', this.description);
-        this.description = '';
-        this.$store.commit('eventFormActive', false);
+        this.$store.dispatch('addEvent', this.description).then(_ => {
+          this.description = '';
+          this.$store.commit('eventFormActive', false);
+        });
       }
     }
   },
@@ -39,10 +40,10 @@ export default {
       return this.$store.state.eventFormActive;
     },
     top() {
-      return `${this.$store.state.eventFormPositionY}px`;
+      return `${this.$store.state.eventFormPosY}px`;
     },
     left() {
-      return `${this.$store.state.eventFormPositionX}px`;
+      return `${this.$store.state.eventFormPosX}px`;
     }
   },
   directives: {

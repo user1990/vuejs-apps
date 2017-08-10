@@ -69,6 +69,7 @@ let targets = [ 'web', 'node' ].map((target) => {
           ? [ `./src/${target}.entry.js`, 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000' ]
           : [ `./src/${target}.entry.js` ]
         : [ `./src/${target}.entry.js` ]
+      
     },
     output: {
       filename: `${target}.bundle.js`,
@@ -92,7 +93,7 @@ let targets = [ 'web', 'node' ].map((target) => {
           new ExtractTextPlugin('style.css')
         ]
       : [],
-
+    
     devtool: target === 'web'
       ? process.env.NODE_ENV === 'development'
         ? '#eval-source-map'

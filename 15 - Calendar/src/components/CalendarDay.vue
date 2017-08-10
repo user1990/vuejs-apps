@@ -1,5 +1,6 @@
 <template>
-  <div :class="classObject" @click="captureClick">{{ day.format('D') }}
+  <div :class="classObject" @click="captureClick">
+    {{ day.format('D') }}
     <ul class="event-list">
       <li v-for="event in events">{{ event.description }}</li>
     </ul>
@@ -27,7 +28,10 @@ export default {
   },
   methods: {
     captureClick(event) {
-      this.$store.commit('eventFormPosition', { x: event.clientX, y: event.clientY });
+      this.$store.commit('eventFormPos', {
+        x: event.clientX,
+        y: event.clientY
+      });
       this.$store.commit('eventFormActive', true);
       this.$store.commit('eventFormDate', this.day);
     }
