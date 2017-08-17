@@ -27,5 +27,6 @@ new Vue({
       projectId: 'annular-text-157306',
       storageBucket: 'annular-text-157306.appspot.com'
     })
+    this.$store.dispatch('loadMeetups')
   }
 })
