@@ -27,6 +27,11 @@ new Vue({
       projectId: 'annular-text-157306',
       storageBucket: 'annular-text-157306.appspot.com'
     })
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.$store.dispatch('autoSignIn', user)
+      }
+    })
     this.$store.dispatch('loadMeetups')
   }
 })
