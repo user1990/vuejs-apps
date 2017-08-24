@@ -25,7 +25,7 @@ new Vue({
       authDomain: 'annular-text-157306.firebaseapp.com',
       databaseURL: 'https://annular-text-157306.firebaseio.com',
       projectId: 'annular-text-157306',
-      storageBucket: 'annular-text-157306.appspot.com'
+      storageBucket: 'gs://annular-text-157306.appspot.com'
     })
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
