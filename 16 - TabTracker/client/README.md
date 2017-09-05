@@ -1,6 +1,6 @@
-# client
+# TabTracker
 
-> A Vue.js project
+> A Full Stack Vue.js / Express.js web application for keeping track of guitar tabs, lyrics.
 
 ## Build Setup
 

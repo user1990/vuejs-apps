@@ -1,7 +1,7 @@
 {
-  "name": "client",
+  "name": "tab-tracker",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "A Vue.js / Express.js web application for keeping track of guitar tabs",
   "author": "user1990 <paulius.rimg1990@gmail.com>",
   "private": true,
   "scripts": {
