@@ -1,6 +1,6 @@
 # TabTracker
 
-> A Full Stack Vue.js / Express.js web application for keeping track of guitar tabs, lyrics.
+> A Full Stack Vue.js / Vuetify / Express.js web application for keeping track of guitar tabs, lyrics.
 
 ## Build Setup
 
