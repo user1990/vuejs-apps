@@ -5,16 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start": "node node_modules/nodemon/bin/nodemon.js src/app.js --exec",
-    "lint": "node node_modules/.bin/eslint **.*.js"
+    "lint": "node node_modules/.bin/eslint **.*.js",
+    "dev": "nodemon --exec npm start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "cors": "^2.8.4",
     "express": "^4.15.4",
     "morgan": "^1.8.2",
+    "joi": "^10.6.0",
+    "jsonwebtoken": "^8.0.0",
     "sequelize": "^4.8.0",
     "sqlite3": "^3.1.8"
   },
