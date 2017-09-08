@@ -32,7 +32,7 @@
         v-if="!$store.state.isUserLoggedIn"
         flat
         dark
-        @click="navigateTo({name: 'root'})">
+        @click="navigateTo({name: 'register'})">
         Sign Up
       </v-btn>
 
@@ -51,7 +51,7 @@
 export default {
   methods: {
     navigateTo (route) {
-      this.$route.push(route)
+      this.$router.push(route)
     },
     logout () {
       this.$store.dispatch('setToken', null)
