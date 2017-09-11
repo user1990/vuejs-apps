@@ -1,3 +1,5 @@
+![meetup](https://user-images.githubusercontent.com/13827656/30291451-ab617490-973b-11e7-9725-b9467c65ef5b.jpg)
+
 # dev-meetup-vue
 
 > A dev meetup application built with Vue + Vuetify + Firebase
