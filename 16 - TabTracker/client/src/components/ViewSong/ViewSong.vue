@@ -8,7 +8,6 @@
 
 <script>
 import SongsService from '@/services/SongsService'
-import Panel from '@/components/Panel'
 
 export default {
   data () {
@@ -21,7 +20,6 @@ export default {
     const song = (await SongsService.show(songId)).data
   },
   components: {
-    Panel
   }
 }
 </script>

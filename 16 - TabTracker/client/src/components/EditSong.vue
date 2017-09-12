@@ -80,7 +80,6 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 import SongsService from '@/services/SongsService'
 
 export default {
@@ -107,15 +106,15 @@ export default {
         .keys(this.song)
         .every(key => !!this.song[key])
       if (!areAllFieldsFilledIn) {
-        this.error = 'Please fll in all the required fields'
+        this.error = 'Please fill in all the required fields.'
         return
       }
 
       const songId = this.$store.state.route.params.songId
       try {
-        await SongsService.post(this.song)
+        await SongsService.put(this.song)
         this.$router.push({
-          name: 'songs',
+          name: 'song',
           params: {
             songId: songId
           }
@@ -132,19 +131,9 @@ export default {
     } catch (err) {
       console.log(err)
     }
-  },
-  components: {
-    Panel
   }
 }
 </script>
 
 <style scoped>
-.home {
-  cursor: pointer;
-}
-.home:hover {
-  color: #000;
-}
 </style>
-

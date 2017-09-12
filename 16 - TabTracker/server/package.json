@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node node_modules/nodemon/bin/nodemon.js src/app.js --exec",
     "lint": "node node_modules/.bin/eslint **.*.js",
-    "dev": "nodemon --exec npm start"
+    "dev": "nodemon --exec npm start",
+    "seed": "node ./seed"
   },
   "keywords": [],
   "author": "",

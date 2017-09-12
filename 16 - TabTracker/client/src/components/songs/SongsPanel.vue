@@ -2,7 +2,9 @@
   <panel title="Songs">
     <v-btn
       slot="action"
-      @click="navigateTo({name: 'songs-create'})"
+      :to="{
+        name: 'songs-create'
+      }"
       class="cyan accent-2"
       light
       medium
@@ -13,7 +15,7 @@
       <v-icon>add</v-icon>
     </v-btn>
 
-    <div
+    <div 
       v-for="song in songs"
       class="song"
       :key="song.id">
@@ -33,12 +35,12 @@
           <v-btn
             dark
             class="cyan"
-            @click="navigateTo({
-              name: 'song',
+            :to="{
+              name: 'song', 
               params: {
                 songId: song.id
               }
-            })">
+            }">
             View
           </v-btn>
         </v-flex>
@@ -53,24 +55,20 @@
 
 <script>
 import SongsService from '@/services/SongsService'
-import Panel from '@/components/Panel'
 
 export default {
-  components: {
-    Panel
-  },
   data () {
     return {
       songs: null
     }
   },
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
+  watch: {
+    '$route.query.search': {
+      immediate: true,
+      async handler (value) {
+        this.songs = (await SongsService.index(value)).data
+      }
     }
-  },
-  async mounted () {
-    this.songs = (await SongsService.index()).data
   }
 }
 </script>
@@ -81,18 +79,21 @@ export default {
   height: 330px;
   overflow: hidden;
 }
+
 .song-title {
   font-size: 30px;
 }
+
 .song-artist {
   font-size: 24px;
 }
+
 .song-genre {
   font-size: 18px;
 }
+
 .album-image {
   width: 70%;
   margin: 0 auto;
 }
 </style>
-
